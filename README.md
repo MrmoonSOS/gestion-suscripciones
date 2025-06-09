@@ -1,12 +1,26 @@
-# React + Vite
+🎯 Gestor de Suscripciones Digitales - PixelHub S.A.S
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicación web desarrollada como parte del proceso de selección para el cargo de Desarrollador Front-End Junior en PixelHub S.A.S. Permite a los usuarios gestionar sus suscripciones a servicios digitales como Netflix, Spotify o Disney+, con una experiencia amigable, modular y funcional.
 
-Currently, two official plugins are available:
+🚀 Funcionalidades principales
+	•	🔐 Inicio de sesión con validación vía API
+	•	🆕 Registro de usuario (opcional)
+	•	➕ Registro de nuevas suscripciones
+	•	📋 Listado de suscripciones existentes
+	•	🔍 Búsqueda por nombre o categoría
+	•	✏️ Edición de suscripciones
+	•	🗑 Eliminación de suscripciones con confirmación SweetAlert2
+	•	🚪 Cierre de sesión con redirección
+	•	📱 Diseño responsive y UI atractiva
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+⸻
 
-## Expanding the ESLint configuration
+🛠 Tecnologías utilizadas
+	•	React JS
+	•	JavaScript ES6+
+	•	HTML5 + CSS3
+	•	React Router DOM
+	•	SweetAlert2
+	•	json-server (para simular la API)
+	•	Vercel (para despliegue)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
