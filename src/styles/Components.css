@@ -1,248 +1,333 @@
-/* Dashboard Principal */
-.dashboard {
-  min-height: 100vh;
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+/* Subscription Cards */
+.subscription-card {
+  background: var(--background);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-light);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
 }
 
-.dashboard-content {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 2rem;
-  animation: fadeIn 0.5s ease-out;
-}
-
-.dashboard-header {
-  margin-bottom: 2rem;
-}
-
-.dashboard-header h1 {
-  color: #2d3748;
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-}
-
-.dashboard-header p {
-  color: #718096;
-  font-size: 1.1rem;
-}
-
-/* Estadísticas */
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-  margin-bottom: 2rem;
-}
-
-.stat-card {
-  background: white;
-  padding: 2rem;
-  border-radius: 16px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+.subscription-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(135deg, var(--primary-color) 0%, #8b5cf6 100%);
   transition: all 0.3s ease;
-  border-left: 4px solid #667eea;
 }
 
-.stat-card:hover {
+.subscription-card.inactiva::before {
+  background: var(--text-muted);
+}
+
+.subscription-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary-color);
 }
 
-.stat-card h3 {
-  color: #4a5568;
-  font-size: 0.9rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-bottom: 0.5rem;
+.subscription-card:hover::before {
+  height: 4px;
 }
 
-.stat-number {
-  color: #667eea;
-  font-size: 2.5rem;
-  font-weight: 700;
-  display: block;
-}
-
-/* Controles del Dashboard */
-.dashboard-controls {
+.card-header {
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+}
+
+.service-info {
+  display: flex;
   align-items: center;
-  margin-bottom: 2rem;
+  gap: 1rem;
+  flex: 1;
+}
+
+.service-icon {
+  font-size: 1.5rem;
+  background: linear-gradient(135deg, var(--background-secondary) 0%, var(--border-light) 100%);
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border-light);
+}
+
+.service-details {
+  flex: 1;
+}
+
+.service-name {
+  color: var(--text-primary);
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  letter-spacing: -0.025em;
+}
+
+.service-category {
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.card-actions {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.edit-btn,
+.delete-btn {
+  background: var(--background-secondary);
+  border: 1px solid var(--border-color);
+  padding: 0.5rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+}
+
+.edit-btn:hover {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+  color: white;
+  transform: translateY(-1px);
+}
+
+.delete-btn:hover {
+  background: var(--error);
+  border-color: var(--error);
+  color: white;
+  transform: translateY(-1px);
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
   gap: 1rem;
 }
 
-.add-button {
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  color: white;
-  padding: 1rem 2rem;
-  border-radius: 12px;
+.cost-info {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.cost-amount {
+  color: var(--text-primary);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+.cost-frequency {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.renewal-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.renewal-badge {
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius-md);
+  font-size: 0.75rem;
   font-weight: 600;
-  font-size: 1rem;
-  border: none;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  white-space: nowrap;
-}
-
-.add-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
-}
-
-/* Barra de búsqueda */
-.search-bar {
-  flex: 1;
-  max-width: 400px;
-}
-
-.search-input-container {
-  position: relative;
+  text-align: center;
+  align-self: flex-start;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
   display: flex;
   align-items: center;
+  gap: 0.5rem;
 }
 
-.search-input {
-  width: 100%;
-  padding: 1rem 3rem 1rem 1rem;
-  border: 2px solid #e2e8f0;
-  border-radius: 12px;
-  font-size: 1rem;
-  background: white;
-  transition: all 0.3s ease;
+.renewal-badge.normal {
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--success);
+  border: 1px solid rgba(16, 185, 129, 0.2);
 }
 
-.search-input:focus {
-  border-color: #667eea;
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+.renewal-badge.warning {
+  background: rgba(245, 158, 11, 0.1);
+  color: var(--warning);
+  border: 1px solid rgba(245, 158, 11, 0.2);
 }
 
-.search-icon {
-  position: absolute;
-  right: 1rem;
-  color: #a0aec0;
-  font-size: 1.2rem;
+.renewal-badge.urgent,
+.renewal-badge.expired {
+  background: rgba(239, 68, 68, 0.1);
+  color: var(--error);
+  border: 1px solid rgba(239, 68, 68, 0.2);
 }
 
-.clear-search {
-  position: absolute;
-  right: 3rem;
-  background: none;
-  border: none;
-  color: #a0aec0;
-  cursor: pointer;
-  padding: 0.2rem;
-  border-radius: 50%;
-  transition: all 0.2s ease;
+.renewal-date {
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  font-weight: 500;
 }
 
-.clear-search:hover {
-  background: #f7fafc;
-  color: #667eea;
+.subscription-notes {
+  background: var(--background-secondary);
+  padding: 0.75rem;
+  border-radius: var(--radius-sm);
+  border-left: 3px solid var(--primary-color);
 }
 
-.search-info {
-  margin-top: 0.5rem;
-  color: #718096;
-  font-size: 0.9rem;
+.subscription-notes small {
+  color: var(--text-secondary);
+  font-style: italic;
+  font-size: 0.75rem;
+  line-height: 1.5;
 }
 
-/* Sección de suscripciones */
-.subscriptions-section {
-  background: white;
-  border-radius: 16px;
-  padding: 2rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-}
-
-.subscriptions-container {
-  width: 100%;
-}
-
-.subscriptions-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  gap: 1.5rem;
-  margin-bottom: 2rem;
-}
-
-.subscriptions-summary {
-  text-align: center;
-  color: #718096;
-  font-size: 0.9rem;
+.subscription-status {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding-top: 1rem;
-  border-top: 1px solid #e2e8f0;
+  border-top: 1px solid var(--border-light);
 }
 
-/* Estado vacío */
+.status-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-md);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.status-icon {
+  flex-shrink: 0;
+}
+
+.status-badge.activa {
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--success);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.status-badge.inactiva {
+  background: var(--background-secondary);
+  color: var(--text-muted);
+  border: 1px solid var(--border-color);
+}
+
+.start-date {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+/* Empty State */
 .empty-state {
   text-align: center;
   padding: 4rem 2rem;
-  color: #718096;
+  color: var(--text-muted);
 }
 
 .empty-icon {
   font-size: 4rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  opacity: 0.5;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 .empty-state h3 {
-  color: #4a5568;
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
 }
 
 .empty-state p {
-  font-size: 1rem;
+  font-size: 0.875rem;
   max-width: 400px;
   margin: 0 auto;
+  line-height: 1.6;
+  color: var(--text-secondary);
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-  .dashboard-content {
+  .subscription-card {
     padding: 1rem;
   }
-  
-  .dashboard-header h1 {
-    font-size: 2rem;
+
+  .service-info {
+    gap: 0.75rem;
   }
-  
-  .stats-grid {
-    grid-template-columns: 1fr;
+
+  .service-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.25rem;
   }
-  
-  .dashboard-controls {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 1rem;
+
+  .service-name {
+    font-size: 1rem;
   }
-  
-  .search-bar {
-    max-width: none;
-  }
-  
-  .subscriptions-grid {
-    grid-template-columns: 1fr;
+
+  .cost-amount {
+    font-size: 1.25rem;
   }
 }
 
 @media (max-width: 480px) {
-  .dashboard-content {
-    padding: 0.5rem;
+  .subscription-card {
+    padding: 0.75rem;
   }
-  
-  .subscriptions-section {
-    padding: 1rem;
+
+  .card-header {
+    margin-bottom: 1rem;
   }
-  
-  .stat-card {
-    padding: 1.5rem;
+
+  .service-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
   }
-  
-  .stat-number {
-    font-size: 2rem;
+
+  .edit-btn,
+  .delete-btn {
+    width: 32px;
+    height: 32px;
+  }
+
+  .cost-amount {
+    font-size: 1.125rem;
   }
 }
