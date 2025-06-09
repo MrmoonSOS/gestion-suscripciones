@@ -24,3 +24,5 @@ Aplicación web desarrollada como parte del proceso de selección para el cargo 
 	•	json-server (para simular la API)
 	•	Vercel (para despliegue)
 
+🥸 Link de vercel: gestion-suscripciones.vercel.app
+
