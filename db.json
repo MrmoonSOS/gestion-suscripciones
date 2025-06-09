@@ -1,0 +1,9 @@
+[
+  {
+    "id": "1",
+    "nombre": "Jaime Zapata",
+    "correo": "jaime@example.com",
+    "password": "hashed_password",
+    "fechaRegistro": "2025-06-03T10:00:00Z"
+  }
+]
